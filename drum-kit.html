@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>drum-kit</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+
+		body{
+			background-image: url(drumbg.jpg);
+			background-size: cover;
+		}
+		.container{
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			height: 100vh;
+		}
+		.key{
+			font-size: 2rem;
+			color: white;
+			border: .4rem solid black;
+			width: 5rem;
+			border-radius: 20px;
+			text-align: center;
+			background: rgba(0, 0, 0, .4);
+			box-shadow: 0 1 1rem black;
+			margin: 1rem;
+			padding: 1rem .5rem;
+			cursor: pointer;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div class="key" data-key="65" id="1" value="111">A</div>
+		<div class="key" data-key="83" id="2">S</div>
+		<div class="key" data-key="68" id="3">D</div>
+		<div class="key" data-key="70" id="4">F</div>
+		<div class="key" data-key="71" id="5">G</div>
+		<div class="key" data-key="72" id="6">H</div>
+		<div class="key" data-key="74" id="7">J</div>
+		<div class="key" data-key="75" id="8">K</div>
+		<div class="key" data-key="76" id="9">L</div>
+	</div>
+
+	<audio data-key="65" src="sounds/clap.wav" id="first"></audio>
+	<audio data-key="83" src="sounds/hihat.wav" id="second"></audio>
+	<audio data-key="68" src="sounds/kick.wav" id="three"></audio>
+	<audio data-key="70" src="sounds/openhat.wav" id="four"></audio>
+    <audio data-key="71" src="sounds/boom.wav" id="fifth"></audio>
+    <audio data-key="72" src="sounds/ride.wav" id="six"></audio>
+    <audio data-key="74" src="sounds/snare.wav" id="seven"></audio>
+    <audio data-key="75" src="sounds/tom.wav" id="aanth"></audio>
+    <audio data-key="76" src="sounds/tink.wav" id="nine"></audio>
+
+
+
+
+    <script type="text/javascript">
+
+    	window.addEventListener("keydown", 
+    		function click(e){
+    		const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
+    		const key = document.querySelector(`.key[data-key="${e.keyCode}"]`)
+
+    		if(!audio) return;
+    		audio.currentTime = 0;
+    		audio.play();
+    		key.classList.add("playing");
+    		this.setTimeout(function(){
+    			key.classList.remove("playing");
+    		}, 700)
+    	} );
+
+
+
+let btn1 = document.getElementById("1")
+btn1.addEventListener("click", function(){
+	const music = document.getElementById("first");
+	music.currentTime = 0;     
+	music.play();
+})
+    	
+    const btn2 = document.getElementById("2")
+btn2.addEventListener("click", function(){
+	const music = document.getElementById("second");
+	music.currentTime = 0;     
+	music.play();
+})
+    	
+    	
+    	const btn3 = document.getElementById("3")
+btn3.addEventListener("click", function(){
+	const music = document.getElementById("three");
+	music.currentTime = 0;     
+	music.play();
+})
+    	
+
+    	const btn4 = document.getElementById("4")
+btn4.addEventListener("click", function(){
+	const music = document.getElementById("four");
+	music.currentTime = 0;     
+	music.play();
+})
+    	
+
+    	const btn5 = document.getElementById("5")
+btn5.addEventListener("click", function(){
+	const music = document.getElementById("fifth");
+	music.currentTime = 0;     
+	music.play();
+})
+    	
+
+    	const btn6 = document.getElementById("6")
+btn6.addEventListener("click", function(){
+	const music = document.getElementById("six");
+	music.currentTime = 0;     
+	music.play();
+})
+    	
+
+    	const btn7 = document.getElementById("7")
+btn7.addEventListener("click", function(){
+	const music = document.getElementById("seven");
+	music.currentTime = 0;     
+	music.play();
+})
+
+const btn8 = document.getElementById("8")
+btn8.addEventListener("click", function(){
+	const music = document.getElementById("aanth");
+	music.currentTime = 0;     
+	music.play();
+})
+    	
+
+    	const btn9 = document.getElementById("9")
+btn9.addEventListener("click", function(){
+	const music = document.getElementById("nine");
+	music.currentTime = 0;     
+	music.play();
+})
+    	
+    		
+    </script>
+
+
+
+</body>
+</html>
